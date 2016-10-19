@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+  <section class="details-books">
+    <a class="btn btn-primary btn-sm" ui-sref="Home">Back</a>
+    <br/> <br/>
+    <div class="row">
+      <img class="pull-left" ng-src="assets/images/{{ awesomeThings[whichItem].logo }}" alt="{{ awesomeThings[whichItem].title }}">
+      <div class="caption">
+        <h3>{{ awesomeThings[whichItem].title}}</h3>
+        <p> {{awesomeThings[whichItem].author}}</p>
+        <p>{{ awesomeThings[whichItem].description }}</p>
+        <p><a ng-href="{{awesomeThings[whichItem].url}}">{{ awesomeThings[whichItem].url }}</a></p>
+      </div>
+    </div>
+  </section>
+</div>

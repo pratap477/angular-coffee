@@ -1,0 +1,50 @@
+<div class="container">
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+  <section class="booklist">
+    <div class="input-group col-md-12">
+      <input type="text" class="  search-query form-control" placeholder="Search" ng-model="searchText.title" autofocus/>
+    <span class="input-group-btn">
+      <button class="btn btn-danger" type="button">
+        <span class=" glyphicon glyphicon-search"></span>
+      </button>
+    </span>
+    </div>
+    <br/>
+    <div class="row">
+      <label class="form-group">
+        Select order
+        <select ng-model="orderBooks">
+          <option value="name">Name</option>
+          <option value="author">Author</option>
+        </select>
+      </label>
+      <label class="form-group">
+        <input type="radio"  ng-model="direction" name="direction" checked>
+        Ascending Order
+      </label>
+      <label class="form-group">
+        <input type="radio"  ng-model="direction" name="direction" value="reverse">
+        Descending Order
+      </label>
+    </div>
+
+    <div class="row">
+      <ul style="list-style-type: none">
+        <li class="row" ng-repeat="awesomeThing in awesomeThings | filter: searchText | orderBy: orderBooks:direction">
+          <a ui-sref="details({bookId:awesomeThings.indexOf(awesomeThing)})">
+          <img class="pull-left" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+          <div class="caption">
+            <h3>{{ awesomeThing.title}}</h3>
+            <p> {{awesomeThing.author}}</p>
+            <p>{{ awesomeThing.description }}</p>
+            <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+          </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div>
